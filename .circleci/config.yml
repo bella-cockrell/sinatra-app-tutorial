@@ -19,6 +19,5 @@ jobs:
       - run: bundle check || bundle install
       - run:
         command: bundle exec rake test
-        when: always
       - store_test_results:
         path: test/reports
