@@ -10,10 +10,6 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Force Bundler Version
-          command: sudo gem update --system
-          command: gem install bundler
-      - run:
           name: Which bundler?
           command: bundle -v
       - ruby/bundle-install
