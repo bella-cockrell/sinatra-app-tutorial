@@ -16,8 +16,8 @@ jobs:
           name: Which bundler?
           command: bundle -v
       - ruby/bundle-install
-      - run: bundle check || bundle install
-      - run:
-        command: bundle exec rake test
-      - store_test_results:
-        path: test/reports
+      # - run: bundle check || bundle install
+      # - run:
+      #   command: bundle exec rake test
+      # - store_test_results:
+      #   path: test/reports
