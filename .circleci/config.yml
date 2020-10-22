@@ -9,15 +9,12 @@ jobs:
     executor: ruby/default
     steps:
       - checkout
-      - run:
-          name: Force bundler update
-          command: gem install bundler
+      - run: gem install bundler
       - run:
           name: Which bundler?
           command: bundle -v
+      - run: bundle check || bundle install
+      - run: bundle exec rake test
+      - store_test_results:
+        path: test/reports
       - ruby/bundle-install
-      # - run: bundle check || bundle install
-      # - run:
-      #   command: bundle exec rake test
-      # - store_test_results:
-      #   path: test/reports

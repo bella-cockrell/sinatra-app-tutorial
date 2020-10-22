@@ -11,7 +11,7 @@ class PalindromeAppTest < Minitest::Test
         get '/'
         assert last_response.ok?
         assert doc(last_response).at_css('h1')
-        assert_equal "Learn Enough Ruby Sample App | THIS IS AN ERROR",
+        assert_equal "Learn Enough Ruby Sample App | Home",
             doc(last_response).at_css('title').content
         assert doc(last_response).at_css('nav')
 
