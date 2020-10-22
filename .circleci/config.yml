@@ -16,14 +16,9 @@ jobs:
           name: Which bundler?
           command: bundle -v
       - ruby/bundle-install
+      - run: bundle check || bundle install
       - run:
-          name: Save test results
-          command: |
-            mkdir -p ~/test-results/rake
-            bundle exec rake
-          when: always
+        command: bundle exec rake test
+        when: always
       - store_test_results:
-        path: ~/test-results/rake
-      - store_artifacts:
-        path: ~/test-results/rake
-
+        path: test/reports
